@@ -1,0 +1,13 @@
+@import '@radix-ui/themes/styles.css';
+/* TODOs:
+  Hover accent color for main button doesn't match shade of purple used
+  Hover accent color for ghost button
+  Disabled ghost button doesn't match design
+  Hover cursor for click targets could be adjusted for non color/shade based UX
+*/
+.radix-themes {
+  --my-purple: #6565EC;
+  --accent-indicator: var(--my-purple);
+  --purple-9: var(--my-purple);
+  --purple-a9: var(--my-purple);
+}
