@@ -30,6 +30,7 @@ I used the following technologies:
 - Typescript
 - React-query
 - Radix-ui
+- Radix-icons
 - lodash
 
 I was able to complete tasks 1-5 and 7.
