@@ -27,6 +27,10 @@ export const useGetUsers = (params = {}) => {
       next: null,
       prev: null,
       pages: 0,
-    }
+    },
+    // 10 retries for initial implementaion
+    // automatic retries due to context use
+    // TODO: add retry/fetch toast
+    retry: 10,
   })
 }

@@ -76,7 +76,7 @@ const Users = memo(
               <MagnifyingGlassIcon />
             </TextField.Slot>
           </TextField.Root>
-          <Button>
+          <Button onClick={() => console.log('add user')}>
             <PlusIcon />
             Add user
           </Button>
