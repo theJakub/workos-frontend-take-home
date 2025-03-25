@@ -63,3 +63,11 @@ I made a note in the TableLoading component about extending the props to include
 
 I added an extra row to the table to show the pagination buttons. I did this to take advantage of the styles I would get for free from the Table component. It does match the designs, but as the screen shrinks, the last column maintains size for the paginiation buttons. What I don't like about this is that the user data will loose space, but a decent amount of white space will be maintained next to the menu button. I feel like this is not a great use of space when the screen is small.
 My preference would be to extend the Table component to include a .Footer. Having a footer that displays like a row, but without being locked into columns would be very useful for the pagination buttons. Another options would just be to use a Box and add the correct border and radius. This would also require the bottom radius on the table to be removed.
+
+## Added late
+
+I realized I forgot animations. I spent about 30 minutes adding animations the morning after submission.
+
+I used motion as my animation package.
+
+I animated the Users page and the Modal.

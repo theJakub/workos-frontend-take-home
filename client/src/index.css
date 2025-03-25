@@ -11,3 +11,11 @@
   --purple-9: var(--my-purple);
   --purple-a9: var(--my-purple);
 }
+
+.search-field:focus-within {
+  opacity: 1;
+}
+
+.search-field {
+  opacity: 0.9;
+}

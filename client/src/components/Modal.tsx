@@ -1,41 +1,62 @@
-import { AlertDialog, Button, Flex } from '@radix-ui/themes';
-import { ReactNode } from 'react';
+import { Dialog, Button, Flex } from '@radix-ui/themes';
+import { motion, AnimatePresence } from 'motion/react';
+
+interface ModalProps {
+  open: boolean;
+  onClose: () => void;
+  title: string;
+  description: React.ReactNode;
+  actionButtonTitle: string;
+  actionButtonHandler: () => void;
+}
 
 const Modal = ({
-  actionButtonTitle,
-  actionButtonHandler,
-  description,
   open,
   onClose,
   title,
-}: {
-  actionButtonTitle: string;
-  actionButtonHandler: () => void;
-  description?: ReactNode | string;
-  open: boolean;
-  onClose: () => void;
-  title: ReactNode | string;
-}) => {
+  description,
+  actionButtonTitle,
+  actionButtonHandler,
+}: ModalProps) => {
   return (
-    <AlertDialog.Root open={open} onOpenChange={onClose}>
-      <AlertDialog.Content>
-        <AlertDialog.Title>{title}</AlertDialog.Title>
-        <AlertDialog.Description>{description}</AlertDialog.Description>
+    <AnimatePresence>
+      {open && (
+        <Dialog.Root open={open} onOpenChange={onClose}>
+          <Dialog.Content asChild>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Dialog.Title>{title}</Dialog.Title>
+              <Dialog.Description>{description}</Dialog.Description>
 
-        <Flex gap="8px" mt="4" justify="end">
-          <AlertDialog.Cancel>
-            <Button variant="soft" color="gray">
-              Cancel
-            </Button>
-          </AlertDialog.Cancel>
-          <AlertDialog.Action>
-            <Button color="red" onClick={actionButtonHandler} variant="outline">
-              {actionButtonTitle}
-            </Button>
-          </AlertDialog.Action>
-        </Flex>
-      </AlertDialog.Content>
-    </AlertDialog.Root>
+              <Flex gap="3" mt="4" justify="end">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Dialog.Close>
+                    <Button variant="soft" color="gray">
+                      Cancel
+                    </Button>
+                  </Dialog.Close>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button onClick={actionButtonHandler} color="red">
+                    {actionButtonTitle}
+                  </Button>
+                </motion.div>
+              </Flex>
+            </motion.div>
+          </Dialog.Content>
+        </Dialog.Root>
+      )}
+    </AnimatePresence>
   );
 };
 
